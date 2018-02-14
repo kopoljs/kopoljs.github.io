@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+  <head>
+    <!--
+    Interactive Analytics Library - An interaction based data modeling JavaScript
+    library. This project is maintained by the Visual Analytics Lab at Georgia Tech.
+    Authors: Bhargav Rajendra, Emily Wall and Arjun Srinivasan
+
+    This project is hosted on GitHub Pages and styled using the Ordered List (https://github.com/orderedlist) theme.
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>kopol.js - Task-based Visualization Recommender</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>kopol.js</h1>
+        <p>Task-based Visualization Recommender</p>
+        <p class="view"><a href="https://github.com/gtvalab/Interactive-Analytics-Library">View the Project on GitHub<small>https://github.com/gtvalab/ChartsEffectiveness</small></a></p>
+        <div class="header">
+          <ul>
+            <li>
+              <a href="https://github.com/gtvalab/Interactive-Analytics-Library/zipball/master">
+                Download<strong style="line-height: 130%;">ZIP File</strong>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gtvalab/Interactive-Analytics-Library/tarball/master">
+                Download<strong style="line-height: 130%;">TAR Ball</strong>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gtvalab/Interactive-Analytics-Library">
+                Fork On <strong style="line-height: 130%;">GitHub</strong>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+<!--         <div class="menu">
+          <ul>
+            <li><a  class="active" href="./index.html">Overview</a></li>
+            <li><a  href="./initial.html">Initialization</a></li>
+            <li><a href="./log.html">Logging</a></li>
+            <li><a href="./usermodel.html">User Model</a></li>
+            <li><a href="./analytics.html">Analytics</a></li>
+          </ul>
+        </div> -->
+
+      </header>
+
+      <section>
+        <h2>What is Kopol.js? </h2>
+
+        <!-- <p><em>View the <a href="http://github.github.com/github-flavored-markdown/sample_content.html">source of this content</a>.</em></p> -->
+        <p class="documentation">
+        <strong>Kopol</strong> is a light javascript visualization recommender. Kopol recommends you the ranked list of the most effective visualizations (Table, Line Chart, Bar Chart, Scatterplot, and Pie Chart) in response to the given tasks. The underlying data used for training kopol.js is based on results from a crowdsourced experiment tested the effectiveness of five visualization types across ten common data analysis tasks using two real world datasets. Kopol ranks visualizations based on combination of users' performance time, accuracy, and preferences.
+        </p>
+ 
+
+       <h3 style="margin-bottom:2px;">Getting Started!</h3>
+      <p>For Node.js, first install module from npm. </p>
+
+      <pre><code> npm install kopol </code></pre>
+      <div style=" width:100%;padding:0px;">
+        <div style="width:65%; float:left; padding-right:1px;">
+      </div>
+      
+        <p>Then get the module </p>
+
+      <pre><code> var kopol = require('kopol'); </code></pre>
+      <div style=" width:100%;padding:0px;">
+        <div style="width:65%; float:left; padding-right:1px;">
+      </div>
+
+ <h3 style="margin-bottom:2px;">getChartPeformance([task, attr1, attr2])</h3>
+ <p>Returns a ranked list of 5 visualizations based on their effectiveness in response to the given task and data attribute types. </p>
+  <pre><code>kopol.getChartPeformance([task, attr1, attr2], function(val){
+     // do something
+}); </code></pre>
+
+ <p>Example: </p>
+  <div style=" width:100%;padding:0px;">
+        <pre><code> //Code 
+kopol.getChartPeformance( ["Retrieve","Ordinal","Nominal"], function(val)
+{
+  console.log("best to worse: ",val);
+});
+
+<code> //Output
+best to worse:  [ 'Table', 'BarChart', 'PieChart', 'Scatterplot', 'LineChart' ]
+      </code>
+      </code></pre>
+
+
+  </div>
+
+      <!--   <h2> Table of Contents</h2>
+        Below is an overview of the documentation for IAL properties.
+
+        <ul>
+          <li><a href="./index.html">Overview</a></li>
+          <li><a href="./initial.html">Initialization</a>
+          <li><a href="./log.html">Logging</a>
+            <ul>
+              <li><a href="./log.html">Log</a></li>
+              <li><a href="./log.html">Get Session Logs</a></li>
+              <li><a href="./log.html">Get Item Logs</a></li>
+              <li><a href="./log.html">Get Attribute Logs</a></li>
+              <li><a href="./log.html">Print Session Logs</a></li>
+              <li><a href="./log.html">Set Max Queue Size</a></li>
+              <li><a href="./log.html">Enqueue</a></li>
+              <li><a href="./log.html">Dequeue</a></li>
+            </ul>
+          </li>
+          <li><a href="./usermodel.html">User Model</a>
+            <ul>
+              <li><a href="./usermodel.html">Items</a>
+                  <ul>
+                    <li><a href="./usermodel.html">Set Item Weight</a></li>
+                    <li><a href="./usermodel.html">Increment Item Weight</a></li>
+                    <li><a href="./usermodel.html">Get Item Score</a></li>
+                    <li><a href="./usermodel.html">Update Item Scores</a></li>
+
+                  </ul>
+              </li>
+              <li><a href="./usermodel.html">Attributes</a>
+                  <ul>
+
+                    <li><a href="./usermodel.html">Get Attribute Weight</a></li>
+                    <li><a href="./usermodel.html">Increment Attribute Weight</a></li>
+                    <li><a href="./usermodel.html">Set Attribute Weight</a></li>
+                    <li><a href="./usermodel.html">Get Top n Points by Interaction Weights</a></li>
+                    <li><a href="./usermodel.html">Get Top n Points by Scores</a></li>
+                    <li><a href="./usermodel.html">Get n Similar Points</a></li>
+                    <li><a href="./usermodel.html">Generate Attribute Weight Vector using Similarity</a></li>
+                    <li><a href="./usermodel.html">Generate Attribute Weight Vector using Differences</a></li>
+                  </ul>
+              </li>
+              <li><a href="./usermodel.html">Bias</a></li>
+            </ul>
+          </li>
+          <li><a href="./analytics.html">Analytics</a>
+            <ul>
+              <li><a href="./analytics.html">Classification</a>
+                <ul>
+                  <li><a href="./analytics.html">K-nearest Neighbours (KNN)</a></li>
+                </ul>
+              </li>
+              <li><a href="./analytics.html">Regression</a>
+                <ul>
+                  <li><a href="./analytics.html">Linear Regression</a></li>
+                </ul>
+              </li>
+              <li><a href="./analytics.html">Clustering</a>
+                <ul>
+                  <li><a href="./analytics.html">K Means</a></li>
+                  <li><a href="./analytics.html">Density-based Spatial Clustering (DBScan)</a></li>
+
+                </ul>
+              </li>
+              <li><a href="./analytics.html">Dimensionality Reduction</a>
+                <ul>
+                  <li><a href="./analytics.html">PCA</a></li>
+                </ul>
+              </li>
+              <li><a href="./analytics.html">Model Selection</a>
+              </li>
+              <li><a href="./analytics.html">Preprocessing</a>
+              </li>
+            </ul>
+          </li>
+        </ul> -->
+
+      </section>
+    <!--   <footer>
+        <p>This project is maintained by<br/><a href="http://vis.gatech.edu">The Visual Analytics Lab at Georgia Tech</a></p>
+      </footer> -->
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
