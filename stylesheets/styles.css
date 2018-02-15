@@ -3,7 +3,7 @@
 body {
   background-color: #fff;
   padding:40px;
-  font: 14px/1.5 "Roboto" "Noto Sans","sans-serif";
+  font: 14px sans-serif;
   color:#727272;
   font-weight:300;
 }
