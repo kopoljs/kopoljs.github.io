@@ -54,7 +54,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:50%;
+  width:40%;
   margin:0 auto;
 }
 
@@ -62,7 +62,6 @@ a:hover small {
   height:300px;
   border-style: solid;
   border-width: 1px;
-  width:100%;
 }
 
 blockquote {
