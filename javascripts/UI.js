@@ -84,6 +84,7 @@ $(".rankBtn").click(function(){
     var obj = [task,attr1,attr2];
     var k = getChartPeformance(obj, function(val){
       showRanking(val);
+      console.log(val);
     });
 
   function showRanking(dataModel){
