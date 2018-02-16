@@ -59,7 +59,7 @@ a:hover small {
 }
 
 .interactiveInterface{
-  height:350px;
+  height:300px;
 /*  border-style: solid;
   border-width: 1px;*/
   padding: 24px 24px 60px 24px;
@@ -347,12 +347,12 @@ iframe {
 }
 
 .dropdown .dropbtn {
-    font: 11px sans-serif;  
+    font: 10px sans-serif;  
     border: none;
     outline: none;
     color: #84817B;
-    width: 155px;
-    padding: 8px 8px;
+    width: 140px;
+    padding: 6px 6px;
     background-color: #F4F4F4;
     font-family: inherit;
     margin: 0;
@@ -366,14 +366,14 @@ iframe {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     float: none;
-    font: 11px sans-serif; 
+    font: 10px sans-serif; 
     color: #84817B;
     padding: 3px 3px;
     text-decoration: none;
