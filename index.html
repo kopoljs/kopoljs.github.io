@@ -11,12 +11,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>kopol.js - Visualization Recommender</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <link rel="shortcut icon" type="image/png" href="kopol.png">
+<!--     <script src="machine_learning.min.js"></script> -->
+
+
     <meta name="viewport" content="width=device-width">
   </head>
+
   <body>
 
     <div class="wrapper">
@@ -36,7 +41,7 @@
               </a>
             </li>
              <li>
-              <a href="https://arxiv.org/submit/2156560/view">
+              <a href="https://arxiv.org/pdf/1709.08546.pdf">
                 Link to<strong style="line-height: 130%;">Paper</strong>
               </a>
             </li>
@@ -46,7 +51,61 @@
         </div>
 
         <div class="interactiveInterface">
+          <div style=" width:50%; float:left; border-right: 1px dotted #cce6ff;">
+              <div class="dropdown"> Select Task Type
+                <div>
+                  <button class="dropbtn">Task Type
+                    <span style="float:right"><i class="fa fa-caret-down"></i></span>
+                  </button>
+                  <div class="dropdown-content">
+                    <a class="task" id="retrieve" href="#">Retrieving Value</a>
+                    <a class="task" id="anomalies" href="#">Finding Anomalies</a>
+                    <a class="task" id="groups" href="#">Finding Groups</a>
+                    <a class="task" id="correlation" href="#">Finding Correlations</a>
+                    <a class="task" id="derived" href="#">Computing Derived Value</a>
+                    <a class="task" id="distribution" href="#">Distribution</a>
+                    <a class="task" id="extremum" href="#">Finding Extremum</a>
+                    <a class="task" id="filtering" href="#">Filtering</a>
+                    <a class="task" id="ordering" href="#">Ordering</a>
+                    <a class="task" id="range" href="#">Determining Range</a>
+                  </div>
+                </div>
+              </div> </br></br></br></br></br>
 
+              <div class="radio1"> Select Attribute Type 1
+                <div class="radio1">
+                  <label><input class="radio1" type="radio" name="optradio1">Ordinal</label>
+                </div>
+                <div class="radio1">
+                  <label><input class="radio1" type="radio" name="optradio1">Nominal</label>
+                </div>
+                <div class="radio1">
+                  <label><input class="radio1" type="radio" name="optradio1">Numerical</label>
+                </div></br></br>
+              </div>
+
+              <div class="radio2"> Select Attribute Type 2
+                <div class="radio2">
+                  <label><input type="radio" name="optradio2">Ordinal</label>
+                </div>
+                <div class="radio2">
+                  <label><input type="radio" name="optradio2">Nominal</label>
+                </div>
+                <div class="radio2">
+                  <label><input type="radio" name="optradio2">Numerical</label>
+                </div>
+              </div></br></br>
+              <div class="rankBtn" style=" text-align: center;">
+                <button class="button button1">Rank</button>
+              </div>
+            </div>
+            <div style=" width:46%; float:right" > 
+             <div class="rankedVisTop" > Ranked Visualizations</div> 
+             <div class="rankedVis"></div>
+
+            </div>
+
+              
         </div> </br> </br>
 
         <!-- <p><em>View the <a href="http://github.github.com/github-flavored-markdown/sample_content.html">source of this content</a>.</em></p> -->
@@ -57,30 +116,23 @@
  
 
        <h3 style="margin-bottom:2px;">Getting Started</h3>
-      <p>For Node.js, first install the module from npm. </p>
+      <p>To use kopol.js in browser, include kopol.js file.</p>
 
-      <pre><code> npm install kopol </code></pre>
+      <pre><code class=" language-markup"><span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/js/kopol.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>
       <div style=" width:100%;padding:0px;">
         <div style="width:65%; float:left; padding-right:1px;">
       </div>
       
-        <p>Then get the module </p>
-
-      <pre><code> var kopol = require('kopol'); </code></pre>
-      <div style=" width:100%;padding:0px;">
-        <div style="width:65%; float:left; padding-right:1px;">
-      </div>
-
  <h3 style="margin-bottom:2px;">getChartPeformance([task, attr1, attr2])</h3>
  <p>Returns a ranked list of 5 visualizations based on their effectiveness in response to the given task and data attribute types. Data attribute types supported by the current version include <em>ordinal, numerical, and nominal.</em> </p>
-  <pre><code>kopol.getChartPeformance([task, attr1, attr2], function(val){
+  <pre><code>getChartPeformance([task, attr1, attr2], function(val){
      // do something
 }); </code></pre>
 
  <p>Example: </p>
   <div style=" width:100%;padding:0px;">
         <pre><code> //Code 
-kopol.getChartPeformance( ["Retrieve","Ordinal","Nominal"], function(val)
+getChartPeformance( ["Retrieve","Ordinal","Nominal"], function(val)
 {
   console.log("best to worse: ",val);
 });
@@ -94,10 +146,12 @@ best to worse:  [ 'Table', 'BarChart', 'PieChart', 'Scatterplot', 'LineChart' ]
   </div>
 
       </section>
-    <!--   <footer>
-        <p>This project is maintained by<br/><a href="http://vis.gatech.edu">The Visual Analytics Lab at Georgia Tech</a></p>
-      </footer> -->
+
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+    <script src="javascripts/scale.fix.js"> </script>
+    <script src="javascripts/UI.js"> </script>
+    <script src="kopol.min.js"> </script>
+
+</body>
+
 </html>

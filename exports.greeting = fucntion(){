@@ -1,3 +1,0 @@
-exports.greeting = fucntion(){
-	console.log("hellow")
-}

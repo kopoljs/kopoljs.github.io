@@ -54,14 +54,25 @@ a:hover small {
 }
 
 .wrapper {
-  width:40%;
+  width:45%;
   margin:0 auto;
 }
 
 .interactiveInterface{
   height:300px;
-  border-style: solid;
-  border-width: 1px;
+/*  border-style: solid;
+  border-width: 1px;*/
+  padding: 24px 24px 60px 24px;
+  background-color: rgba(255,255,255,0.99);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+
+.rankedVisTop{
+  text-align: center;
+  font-size:14px;
+  padding-bottom: 10px;
+  height:40px;
+  width:100%;
 }
 
 blockquote {
@@ -324,4 +335,71 @@ iframe {
 }
 .documentation {
   text-align: left;
+}
+
+
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font: 12px sans-serif;  
+    border: none;
+    outline: none;
+    color: #84817B;
+    width: 190px;
+    padding: 8px 8px;
+    background-color: #F4F4F4;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    font: 11px sans-serif; 
+    color: #84817B;
+    padding: 3px 3px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.button {
+
+    background-color: #cce6ff; /* Green */
+    border: none;
+    font: 13px sans-serif;  
+    color: #84817B;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
 }
