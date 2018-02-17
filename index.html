@@ -120,7 +120,8 @@
       </div>
       
  <h3 style="margin-bottom:2px;">getChartPeformance([task, attr1, attr2])</h3>
- <p>Returns a ranked list of 5 visualizations based on their effectiveness in response to the given task and data attribute types. Data attribute types supported by the current version include <em>ordinal, numerical, and nominal.</em> </p>
+ <p>Returns a ranked list of 5 visualizations based on their effectiveness in response to the given task and data attribute types. 
+ kopol.js supports 10 tasks provided by the research by <a href="https://www.cc.gatech.edu/~stasko/papers/infovis05.pdf"> Amar et al.</a> The tasks inlcude <em>finding anomalies, retrieving values, finding groups, finding correlations, computing derived values, distribution, finding extremum, filtering, ordering, and determining range</em>. Data attribute types supported by the current version include <em>ordinal, numerical, and nominal.</em> </p>
   <pre><code>getChartPeformance([task, attr1, attr2], function(val){
      // do something
 }); </code></pre>
