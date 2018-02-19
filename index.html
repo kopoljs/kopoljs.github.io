@@ -105,7 +105,7 @@
                   <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="accuracy">
                 </div> </br>
               </div>
-              <div>People's Preferences?
+              <div>Popularity?
                 <div class="slidecontainer2" style="width:130px; margin-top: -10px;"> </br>
                   <span style="font-size: 9px; float: left"> Don't Care </span>
                   <span style="font-size: 9px; float:right;" > Care </span> 
@@ -128,14 +128,14 @@
         <!-- <p><em>View the <a href="http://github.github.com/github-flavored-markdown/sample_content.html">source of this content</a>.</em></p> -->
         <h3>What is kopol.js?</h3>
         <p style="margin-top:-15px">
-        <strong>Kopol</strong> is a mini javascript visualization recommender. Kopol recommends you the ranked list of the most effective visualizations (Table, Line Chart, Bar Chart, Scatterplot, and Pie Chart) in response to the given tasks and data attributes. Kopol ranks visualizations based on the combination of users' performance time, accuracy, and preferences.
+        <strong>Kopol</strong> is a mini javascript visualization recommender. Kopol recommends you the ranked list of the most effective visualizations (Table, Line Chart, Bar Chart, Scatterplot, and Pie Chart) in response to the given tasks and data attributes. Kopol ranks visualizations based on the combination of users' performance time, accuracy, and popularity (users' preferences).
         </p>
 
          <h3>Recommendation model in kopol.js</h3>
         <p style="margin-top:-15px">
-       To recommend ranked visualizations, kopol.js uses a decision tree that we trained using thousounds of user responses collected through a crowdsourced experiment (see <a href="https://arxiv.org/pdf/1709.08546.pdf"> our paper</a> for details on experimental design and data collection). The decision tree model uses task and data attribute types as input features and predicts a set of visualization types ranked by their effectiveness in visualizing the data for the given task. </br></br>
+       To recommend ranked visualizations, kopol.js uses a decision tree that we trained using thousounds of user responses collected through a crowdsourced experiment (see <a href="https://arxiv.org/pdf/1709.08546.pdf"> our paper</a> for details on experimental design and data collection). The decision tree model uses task and data attribute types as input features and predicts a set of visualization txypes ranked by their effectiveness in visualizing the data for the given task. </br></br>
 
-       Ground truth values used for training the model is will be calculated by taking into account normalized values of performance time, accuracy and user preferences using the following formula: </br></br>
+       Ground truth values used for training the model will be calculated by taking into account normalized values of performance time, accuracy and popularity using the following formula: </br></br>
         Visualization Score = (<span>&alpha;</span> <span>&times;</span> Time) + (<span>&beta;</span> <span>&times;</span>  Accuracy)  + (<span>&gamma;</span> <span>&times;</span>  Preference)
 
         </br></br>
