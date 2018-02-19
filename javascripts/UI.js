@@ -1,4 +1,4 @@
-  var task, attr1, attr2;
+  var task, attr1, attr2, alpha=1, beta=1,gama=1;
   function dorpSelected(id){
       $(".dropbtn").html($(id).text() +'<span style="float:right"><i class="fa fa-caret-down"></i></span>');
       $(".dropdown-content").slideUp();
@@ -80,11 +80,25 @@ $('input[type=radio][name=optradio2]').change(function() {
     }            
 })
 
+
+$(document).on('input', '#time', function() {
+    alpha = $(this).val()/100;
+});
+
+$(document).on('input', '#accuracy', function() {
+    beta = $(this).val()/100;
+});
+
+$(document).on('input', '#preference', function() {
+    gama = $(this).val()/100;
+});
+
+
+
 $(".rankBtn").click(function(){
-    var obj = [task,attr1,attr2];
+    var obj = [task,attr1,attr2, alpha, beta, gama];
     var k = getChartPeformance(obj, function(val){
       showRanking(val);
-      console.log(val);
     });
 
   function showRanking(dataModel){
@@ -92,10 +106,10 @@ $(".rankBtn").click(function(){
       if(dataModel.length>1)
        $(".rankedVis").append(" <p><strong> From Best to Worse! </strong></p>");
       for(i=0;i<dataModel.length;i++)
-        {
+      {
           var el = $("<div />").css("display", "none").text(dataModel[i])
           $(".rankedVis").append(el);
           el.slideDown(600);
-        }
+      }
   }
 });

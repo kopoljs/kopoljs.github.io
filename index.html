@@ -47,7 +47,7 @@
         </div>
 
         <div class="interactiveInterface">
-          <div style=" width:50%; float:left;">
+          <div style=" width:60%; float:left;">
               <div class="dropdown"> Select Task Type
                 <div>
                   <button class="dropbtn">Task Type
@@ -92,31 +92,31 @@
                 </div>
               </div></br>
               <div>Performance Time?
-                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                <div class="slidecontainer1" style="width:130px; margin-top: -10px;"> </br>
                   <span style="font-size: 9px; float: left"> Don't Care </span>
                   <span style="font-size: 9px; float:right;" > Care </span> 
                   <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
                 </div> </br>
               </div>
               <div>Accuracy?
-                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                <div class="slidecontainer2" style="width:130px; margin-top: -10px;"> </br>
                   <span style="font-size: 9px; float: left"> Don't Care </span>
                   <span style="font-size: 9px; float:right;" > Care </span> 
-                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
+                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="accuracy">
                 </div> </br>
               </div>
               <div>People's Preferences?
-                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                <div class="slidecontainer2" style="width:130px; margin-top: -10px;"> </br>
                   <span style="font-size: 9px; float: left"> Don't Care </span>
                   <span style="font-size: 9px; float:right;" > Care </span> 
-                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
-                </div> </br></br></br>
+                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="preference">
+                </div> </br></br>
               </div>
               <div class="rankBtn" style=" text-align: center;"> 
                 <button class="button button1">Rank</button>
               </div></br>
             </div>
-            <div style=" width:46%; float:right" > 
+            <div style=" width:36%; float:right" > 
              <div class="rankedVisTop" > Ranked Visualizations</div> 
              <div class="rankedVis"></div>
 
@@ -133,7 +133,14 @@
 
          <h3>Recommendation model in kopol.js</h3>
         <p style="margin-top:-15px">
-        The underlying model used for ranking visualizations in kopol.js is trained based on thousands of data points collected from a crowdsourced experiment tested the effectiveness of five visualization types across ten common data analysis tasks using real-world datasets. Based on the collected data, we used decision tree to create a model that predicts the ranking of each visualization type. Features used for training the underlying decision tree model include visualization type, task type, and data attribute types.
+       To recommend ranked visualizations, kopol.js uses a decision tree that we trained using thousounds of user responses collected through a crowdsourced experiment (see our paper for details on experimental design and data collection). The decision tree model uses task and data attribute types as input features and predicts a set of visualization types ranked by their effectiveness in visualizing the data for the given task. </br></br>
+
+       Ground truth values used for training the model is calculated using following formula: </br></br>
+        Visualization Score = (<span>&alpha;</span> <span>&times;</span> Time) + (<span>&beta;</span> <span>&times;</span>  Accuracy)  + (<span>&gamma;</span> <span>&times;</span>  Preference)
+
+        </br></br>
+
+        where <span>&alpha;</span>, <span>&beta;</span>, and <span>&gamma;</span> indicate the weighting for each factor.
 
         </p>
 
@@ -145,21 +152,25 @@
         <div style="width:65%; float:left; padding-right:1px;">
       </div>
       
- <h3 style="margin-bottom:2px;">getChartPeformance([task, attr1, attr2])</h3>
+ <h3 style="margin-bottom:2px;">getChartPeformance([task, attr1, attr2, <span>&alpha;</span>, <span>&beta;</span>, <span>&gamma;</span>])</h3>
  <p>This method returns a ranked list of 5 visualizations based on their effectiveness in response to the given task and data attribute types. kopol.js supports 10 tasks provided by the research by <a href="https://www.cc.gatech.edu/~stasko/papers/infovis05.pdf"> Amar et al.</a> The tasks inlcude <em>finding anomalies, retrieving values, finding groups, finding correlations, computing derived values, distribution, finding extremum, filtering, ordering, and determining range</em>. Data attribute types supported by the current version include <em>ordinal, numerical, and nominal.</em> </p>
   <pre><code>
 //Tasks :["Retrieve","Anomalies","Cluster","Correlation","Derived",
-          "Distribution","Extremum",Filter","Order","Range"]
-//Data Attributes :["Nominal","Ordinal","Numerical"]
+                             "Distribution","Extremum",Filter","Order","Range"] </br>
+//Data Attributes :["Nominal","Ordinal","Numerical"] </br>
+//<span>&alpha;</span>: a value between 0 to 1 that specifies the weighting/importance of time </br>
+//<span>&beta;</span>: a value between 0 to 1 that specifies the weighting/importance of accurcy </br>
+//<span>&gamma;</span>: a value between 0 to 1 that specifies the weighting/importance of preference </br>
 
-getChartPeformance([task, attr1, attr2], function(val){
+getChartPeformance([task, attr1, attr2, , <span>&alpha;</span>, <span>&beta;</span>, <span>&gamma;</span>], function(val)
+{
      // do something
 }); </code></pre>
 
  <p>Example: </p>
   <div style=" width:100%;padding:0px;">
         <pre><code> //Code 
-getChartPeformance( ["Retrieve","Ordinal","Nominal"], function(val)
+getChartPeformance(["Retrieve","Ordinal","Nominal", 0.5, 0.5, 0.5], function(val)
 {
   console.log("best to worse: ",val);
 });
