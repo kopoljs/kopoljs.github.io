@@ -70,30 +70,51 @@
 
               <div class="radio1"> Attribute Type 1
                 <div class="radio1">
-                  <label><input class="radio1" type="radio" name="optradio1">Ordinal</label>
+                  <label style="font-size: 12px"><input class="radio1" type="radio" name="optradio1">Ordinal</label>
                 </div>
                 <div class="radio1">
-                  <label><input class="radio1" type="radio" name="optradio1">Nominal</label>
+                  <label style="font-size: 12px"><input class="radio1" type="radio" name="optradio1">Nominal</label>
                 </div>
                 <div class="radio1">
-                  <label><input class="radio1" type="radio" name="optradio1">Numerical</label>
+                  <label style="font-size: 12px"><input class="radio1" type="radio" name="optradio1">Numerical</label>
                 </div></br>
               </div>
 
               <div class="radio2"> Attribute Type 2
                 <div class="radio2">
-                  <label><input type="radio" name="optradio2">Ordinal</label>
+                  <label style="font-size: 12px"><input type="radio" name="optradio2">Ordinal</label>
                 </div>
                 <div class="radio2">
-                  <label><input type="radio" name="optradio2">Nominal</label>
+                  <label style="font-size: 12px"><input type="radio" name="optradio2">Nominal</label>
                 </div>
                 <div class="radio2">
-                  <label><input type="radio" name="optradio2">Numerical</label>
+                  <label style="font-size: 12px"><input type="radio" name="optradio2">Numerical</label>
                 </div>
               </div></br>
-              <div class="rankBtn" style=" text-align: center;">
-                <button class="button button1">Rank</button>
+              <div>Performance Time?
+                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                  <span style="font-size: 9px; float: left"> Don't Care </span>
+                  <span style="font-size: 9px; float:right;" > Care </span> 
+                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
+                </div> </br>
               </div>
+              <div>Accuracy?
+                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                  <span style="font-size: 9px; float: left"> Don't Care </span>
+                  <span style="font-size: 9px; float:right;" > Care </span> 
+                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
+                </div> </br>
+              </div>
+              <div>People's Preferences?
+                <div class="slidecontainer" style="width:130px; margin-top: -10px;"> </br>
+                  <span style="font-size: 9px; float: left"> Don't Care </span>
+                  <span style="font-size: 9px; float:right;" > Care </span> 
+                  <input style=" width: 120px;  margin-left: 10px" type="range" min="0" max="100" value="50" class="slider" id="time">
+                </div> </br>
+              </div>
+              <div class="rankBtn" style=" text-align: center;"> 
+                <button class="button button1">Rank</button>
+              </div></br>
             </div>
             <div style=" width:46%; float:right" > 
              <div class="rankedVisTop" > Ranked Visualizations</div> 

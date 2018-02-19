@@ -89,6 +89,8 @@ $(".rankBtn").click(function(){
 
   function showRanking(dataModel){
       $(".rankedVis").empty();
+      if(dataModel.length>1)
+       $(".rankedVis").append(" <p><strong> From Best to Worse! </strong></p>");
       for(i=0;i<dataModel.length;i++)
         {
           var el = $("<div />").css("display", "none").text(dataModel[i])
