@@ -99,8 +99,11 @@ $(".rankBtn").click(function(){
     $("#loader").show();
     var obj = [task,attr1,attr2, alpha, beta, gama];
     var k = getChartPeformance(obj, function(val){
-       $("#loader").hide();
-       showRanking(val);
+       setTimeout(function(){ 
+           $("#loader").hide()
+           showRanking(val);
+       }, 1500);
+
     });
   function showRanking(dataModel){
       $(".rankedVis").empty();
