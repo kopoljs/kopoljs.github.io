@@ -118,7 +118,11 @@
             </div>
             <div style=" width:36%; float:right" > 
              <div class="rankedVisTop" > Ranked Visualizations</div> 
-             <div class="rankedVis"></div>
+
+             <div class="rankedVis">
+               <div style="margin-left:10%; margin-top:1%; width: 15px; height:15px; display: none;" id="loader"></div>
+
+             </div>
 
             </div>
 
@@ -133,7 +137,7 @@
 
          <h3>Recommendation model in kopol.js</h3>
         <p style="margin-top:-15px">
-       To recommend ranked visualizations, kopol.js uses a decision tree that we trained using thousounds of user responses collected through a crowdsourced experiment (see <a href="https://arxiv.org/pdf/1709.08546.pdf"> our paper</a> for details on experimental design and data collection). The decision tree model uses task and data attribute types as input features and predicts a set of visualization txypes ranked by their effectiveness in visualizing the data for the given task. </br></br>
+       To recommend ranked visualizations, kopol.js uses a decision tree that we trained using thousounds of user responses collected through a crowdsourced experiment (see <a href="https://arxiv.org/pdf/1709.08546.pdf"> our paper</a> for details on experimental design and data collection). The decision tree model uses task and data attribute types as input features and predicts a set of visualization types ranked by their effectiveness in visualizing the data for the given task. </br></br>
 
        Ground truth values used for training the model will be calculated by taking into account normalized values of performance time, accuracy and popularity using the following formula: </br></br>
         Visualization Score = (<span>&alpha;</span> <span>&times;</span> Time) + (<span>&beta;</span> <span>&times;</span>  Accuracy)  + (<span>&gamma;</span> <span>&times;</span>  Preference)

@@ -96,11 +96,12 @@ $(document).on('input', '#preference', function() {
 
 
 $(".rankBtn").click(function(){
+    $("#loader").show();
     var obj = [task,attr1,attr2, alpha, beta, gama];
     var k = getChartPeformance(obj, function(val){
-      showRanking(val);
+       $("#loader").hide();
+       showRanking(val);
     });
-
   function showRanking(dataModel){
       $(".rankedVis").empty();
       if(dataModel.length>1)
