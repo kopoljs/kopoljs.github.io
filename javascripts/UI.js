@@ -102,7 +102,7 @@ $(".rankBtn").click(function(){
        setTimeout(function(){ 
            $("#loader").hide()
            showRanking(val);
-       }, 1500);
+       }, 1000);
 
     });
   function showRanking(dataModel){
