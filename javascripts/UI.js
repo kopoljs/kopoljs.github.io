@@ -23,7 +23,7 @@
        dorpSelected('#groups');
   });
   $('#correlation').click(function(){
-      task = "Correlations";
+      task = "Correlation";
       dorpSelected('#correlation');
   });
   $('#derived').click(function(){
